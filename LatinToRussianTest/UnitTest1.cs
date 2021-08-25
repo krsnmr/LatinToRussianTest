@@ -1,4 +1,4 @@
-
+п»ї
 using NUnit.Framework;
 
 namespace LatinToRussianTest
@@ -12,12 +12,12 @@ namespace LatinToRussianTest
             Assert.That(result, Is.EqualTo(1));
         }
 
-        readonly string russianAlphabetLowercase = "а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я";
-        readonly string russianAlphabetUppercase = "А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я";
+        readonly string russianAlphabetLowercase = "Р° Р± РІ Рі Рґ Рµ С‘ Р¶ Р· Рё Р№ Рє Р» Рј РЅ Рѕ Рї СЂ СЃ С‚ Сѓ С„ С… С† С‡ С€ С‰ СЉ С‹ СЊ СЌ СЋ СЏ";
+        readonly string russianAlphabetUppercase = "Рђ Р‘ Р’ Р“ Р” Р• РЃ Р– Р— Р Р™ Рљ Р› Рњ Рќ Рћ Рџ Р  РЎ Рў РЈ Р¤ РҐ Р¦ Р§ РЁ Р© РЄ Р« Р¬ Р­ Р® РЇ";
         readonly string expectedLowercase = "a b v g d e yo zh z i j k l m n o p r s t u f kh ts ch sh shch \" y ' e yu ya";
         readonly string expectedUppercase = "A B V G D E Yo Zh Z I J K L M N O P R S T U F Kh Ts Ch Sh Shch \" Y ' E Yu Ya";
 
-        readonly string russian1 = "а б в";
+        readonly string russian1 = "Р° Р± РІ";
 
         [Test]
         public void GetLengthTest()
@@ -35,13 +35,13 @@ namespace LatinToRussianTest
                 Transliterator.Conv(russianAlphabetUppercase));
         }
 
-        [TestCase("Priladozhskiy", "Приладожский")]
-        [TestCase("Naziya", "Назия")]
-        [TestCase("Sinyavino", "Синявино")]
-        [TestCase("Shlissel'burg", "Шлиссельбург")]
+        [TestCase("Priladozhskiy", "РџСЂРёР»Р°РґРѕР¶СЃРєРёР№")]
+        [TestCase("Naziya", "РќР°Р·РёСЏ")]
+        [TestCase("Sinyavino", "РЎРёРЅСЏРІРёРЅРѕ")]
+        [TestCase("Shlissel'burg", "РЁР»РёСЃСЃРµР»СЊР±СѓСЂРі")]
         public void ConvTest(string res, string str)
         {
-            //var str = "Приладожский";
+            //var str = "РџСЂРёР»Р°РґРѕР¶СЃРєРёР№";
             //var result = "Priladozhskiy";
             Assert.That(res, Is.EqualTo(Transliterator.Conv(str)));
         }
